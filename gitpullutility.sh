@@ -2,6 +2,7 @@
 
 path=/path/to/repositories
 GREEN='\033[0;32m'
+RED='\e[31m'
 NC='\033[0m'
 
 eval "$(ssh-agent -s)"
@@ -15,3 +16,5 @@ do
   git pull
   git gc --auto
 done
+echo -e "${RED}All done, shutting down ssh-agent${NC}"
+ssh-agent -k
